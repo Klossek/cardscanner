@@ -1,0 +1,7 @@
+{
+  "name": "cardscanner",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
