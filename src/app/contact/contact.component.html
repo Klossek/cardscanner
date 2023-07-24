@@ -1,0 +1,40 @@
+<ion-item
+  *ngIf="contact"
+  [routerLink]="'/contact/' + contact.id"
+  (click)="expand()"
+  [detail]="false"
+>
+  <div></div>
+
+  <ion-label class="ion-text-wrap">
+    <h2>{{ contact.firstName }} {{ contact.lastName }}</h2>
+
+    <p></p>
+  </ion-label>
+  <ion-icon aria-hidden="true" name="chevron-forward" size="small"></ion-icon>
+</ion-item>
+
+<ion-item-group *ngIf="expanded && contact" class="detailView">
+  <ion-item-divider>
+    <ion-label> Personal </ion-label>
+  </ion-item-divider>
+  <ion-item>
+    <ion-label>City: {{ contact.city }}</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>Stree: {{ contact.street }}</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>Phone: {{ contact.phone }}</ion-label>
+  </ion-item>
+
+  <ion-item-divider>
+    <ion-label> Work </ion-label>
+  </ion-item-divider>
+  <ion-item>
+    <ion-label>Organization:{{ contact.organization }}</ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>Position:{{ contact.position }}</ion-label>
+  </ion-item>
+</ion-item-group>

@@ -13,12 +13,20 @@
 
   <div class="container" *ngIf="photo">
     <ion-img [src]="photo.webviewPath"> </ion-img>
+    <ion-item *ngIf="error" color="danger">
+      Something went wrong. Please try again
+    </ion-item>
+  </div>
+  <ion-loading *ngIf="isLoading" is-open></ion-loading>
+
+  <div *ngIf="contact">
+    <app-edit-contact [contact]="contact"></app-edit-contact>
+    <ion-button (click)="addContact()">Add contact</ion-button>
+    <ion-button color="danger" (click)="clear()">Clear all contacts</ion-button>
   </div>
 
-  <ion-button (click)="scanCard()">Scan Card</ion-button>
-
   <ion-fab vertical="bottom" horizontal="center" slot="fixed">
-    <ion-fab-button (click)="addPhotoToGallery()">
+    <ion-fab-button (click)="takePhoto()" id="open-loading">
       <ion-icon name="camera"></ion-icon>
     </ion-fab-button>
   </ion-fab>

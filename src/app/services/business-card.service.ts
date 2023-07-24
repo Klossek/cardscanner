@@ -21,12 +21,10 @@ export class BusinessCardService {
   scanCard(photo: CardPhoto) {
     const base64result = photo.base64Data.split(',')[1];
 
-    console.log('scanner', base64result);
-    this.http
-      .post(this.cardUrl, { front: base64result }, this.httpOptions)
-      .subscribe((response) => {
-        console.log(response);
-        return JSON.stringify(response);
-      });
+    return this.http.post(
+      this.cardUrl,
+      { front: base64result },
+      this.httpOptions
+    );
   }
 }
